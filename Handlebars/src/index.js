@@ -36,7 +36,7 @@ io.on('connection', async (socket) => {
   socket.on('add-product', async (data) => {
     const products = await ProductsApi.save(data);
 
-    io.sockets.emit('products', products);
+    io.sockets.emit('products', ProductsApi.getAll());
   });
 });
 
